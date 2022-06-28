@@ -1,5 +1,10 @@
-import { Header } from "./components/Header";
+import AuthRoute from "./components/AuthRoute";
+import Home from "./components/Home";
 
 export default function Root(props) {
-  return <Header />;
+  return (
+    <AuthRoute>
+      <Home />
+    </AuthRoute>
+  );
 }

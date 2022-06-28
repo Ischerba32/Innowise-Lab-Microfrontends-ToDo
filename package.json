@@ -62,10 +62,15 @@
     "@types/systemjs": "^6.1.1",
     "@types/webpack-env": "^1.16.2",
     "classnames": "^2.3.1",
+    "dotenv-webpack": "^7.1.1",
+    "firebase": "^9.8.4",
+    "moment": "^2.29.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.33.0",
     "single-spa": "^5.9.3",
-    "single-spa-css": "^2.0.0"
+    "single-spa-css": "^2.0.0",
+    "uuid": "^8.3.2"
   },
   "types": "dist/Innowise-todo.d.ts"
 }

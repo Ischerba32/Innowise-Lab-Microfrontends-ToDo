@@ -1,0 +1,29 @@
+.day {
+  padding: 10px;
+  height: auto;
+  cursor: pointer;
+
+  &__content {
+    width: 55px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--gray-dark);
+    border-radius: 20px !important;
+    margin-bottom: 10px;
+
+    &_active {
+      border: 1px solid var(--primary);
+      color: var(--primary) !important;
+      font-weight: 600;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    margin: 0;
+  }
+}
