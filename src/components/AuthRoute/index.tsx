@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../config/firebaseConfig";
 import { AuthContext } from "../../context/auth.context";
 import IUser from "../../interfaces/user.interface";
@@ -13,10 +13,10 @@ const AuthRoute = ({ children }: IAuthRouteProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<IUser>({ uid: "", email: "" });
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const authCheck = onAuthStateChanged(auth, (user) => {
+    return onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoading(false);
         setUser({
@@ -29,10 +29,9 @@ const AuthRoute = ({ children }: IAuthRouteProps) => {
           uid: "",
           email: "",
         });
-        // navigate('/login');
+        navigate("/signin");
       }
     });
-    authCheck();
   }, []);
 
   if (loading) return <p>Loading...</p>;

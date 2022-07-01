@@ -1,6 +1,5 @@
 import { memo, useContext, useEffect, useState } from "react";
 import moment from "moment";
-// import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from "../../context/auth.context";
 import { useTheme } from "../../hooks/useTheme";
 import { database } from "../../config/firebaseConfig";
@@ -22,10 +21,7 @@ const Calendar = memo((): JSX.Element => {
   const [dataFromDB, setDataFromDB] = useState<ITask[] | null>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // const {uid, email} = useContext(AuthContext);
-  const uid = "YHWHOhR5aUNS6csV7i88NIEO7UE2";
-  const email = "i.scherba32@gmail.com";
-  const { theme } = useTheme();
+  const { uid, email } = useContext(AuthContext);
 
   const fetchData = async (uid: string) => {
     setLoading(true);
@@ -40,7 +36,6 @@ const Calendar = memo((): JSX.Element => {
 
   useEffect(() => {
     fetchData(uid);
-    // toast(`Welcome back, ${email}`);
   }, [uid, email]);
 
   const dayTasks = dataFromDB?.filter((task) => task.date === activeDay);
@@ -69,17 +64,6 @@ const Calendar = memo((): JSX.Element => {
         </Button>
       </Card>
       <CreateTask active={modalOpened} setActive={setModalOpened} />
-      {/* <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme={theme === 'light' ? 'light': 'dark'}
-      /> */}
     </>
   );
 });

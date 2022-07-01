@@ -1,4 +1,4 @@
-.header {
+.todoHeader {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -7,6 +7,12 @@
 	padding: 15px;
 	border-radius: 10px;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+
+	&__buttons {
+		display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+	}
 }
 
 /* // @media screen and (max-width: 820px) {
