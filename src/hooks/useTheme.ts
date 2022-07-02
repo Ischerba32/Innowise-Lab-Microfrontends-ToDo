@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import IUseTheme from "../interfaces/hooks/useTheme.interface";
 
-// @ts-ignore
 const defaultTheme = window.store.theme;
 
 export const useTheme = (): IUseTheme => {
@@ -9,9 +8,7 @@ export const useTheme = (): IUseTheme => {
     localStorage.getItem("app-theme") || defaultTheme
   );
 
-  // @ts-ignore
   const handleSetTheme = (value: string) => {
-    // @ts-ignore
     window.store.setTheme(value);
     setTheme(value);
   };
@@ -23,8 +20,8 @@ export const useTheme = (): IUseTheme => {
 
   useEffect(() => {
     window.addEventListener("themeChange", () => {
-      // @ts-ignore
       document.documentElement.setAttribute("data-theme", theme);
+      setTheme(window.store.theme);
     });
   }, [theme]);
 
