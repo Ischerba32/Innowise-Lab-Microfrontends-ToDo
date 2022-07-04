@@ -1,42 +1,39 @@
-import { onAuthStateChanged } from "firebase/auth";
-import { ReactNode, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebaseConfig";
-import { AuthContext } from "../../context/auth.context";
-import IUser from "../../interfaces/user.interface";
+import { onAuthStateChanged } from 'firebase/auth';
+import { ReactNode, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { auth } from '../../config/firebaseConfig';
+import { AuthContext } from '../../context/auth.context';
+import User from '../../interfaces/user.interface';
 
 export interface IAuthRouteProps {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 const AuthRoute = ({ children }: IAuthRouteProps) => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [user, setUser] = useState<IUser>({ uid: "", email: "" });
+	const [user, setUser] = useState<User>({ uid: '', email: '' });
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  useEffect(() => {
-    return onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setLoading(false);
-        setUser({
-          uid: user.uid,
-          email: user?.email,
-        });
-      } else {
-        console.log("Unauthorized");
-        setUser({
-          uid: "",
-          email: "",
-        });
-        navigate("/signin");
-      }
-    });
-  }, []);
+	useEffect(() => {
+		return onAuthStateChanged(auth, (user) => {
+			if (user) {
+				setUser({
+					uid: user.uid,
+					email: user?.email,
+				});
+			} else {
+				console.log('Unauthorized');
+				setUser({
+					uid: '',
+					email: '',
+				});
+				navigate('/signin');
+			}
+		});
+	}, []);
 
-  if (loading) return <p>Loading...</p>;
-
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 };
 
 export default AuthRoute;

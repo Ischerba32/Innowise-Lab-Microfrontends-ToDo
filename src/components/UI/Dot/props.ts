@@ -1,3 +1,3 @@
 export default interface IDotProps {
-  color: "complete" | "incomplete";
+	color: 'complete' | 'incomplete';
 }

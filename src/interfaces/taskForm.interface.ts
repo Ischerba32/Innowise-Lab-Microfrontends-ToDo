@@ -1,5 +1,5 @@
-export default interface ITaskForm {
-  title: string;
-  description: string;
-  date?: string;
+export default interface TaskFormParams {
+	title: string;
+	description: string;
+	date?: string;
 }

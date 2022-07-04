@@ -1,6 +1,6 @@
-import ITask from "../../../interfaces/task.interface";
+import Task from '../../../interfaces/task.interface';
 
 export default interface IToDoListProps {
-  tasks: ITask[];
-  tasksDate: string;
+	tasks: Task[];
+	tasksDate: string;
 }

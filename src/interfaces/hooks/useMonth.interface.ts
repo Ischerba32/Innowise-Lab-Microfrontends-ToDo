@@ -1,5 +1,5 @@
-import { Moment } from "moment";
+import { Moment } from 'moment';
 
-export default interface IUseMonth {
-  days: Moment[];
+export default interface UseMonthParams {
+	days: Moment[];
 }

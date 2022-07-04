@@ -1,6 +1,6 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject } from 'react';
 
-export default interface IUseInfiniteScroll {
-  loadMoreRef: MutableRefObject<null>;
-  month: number;
+export default interface UseInfiniteScrollReturnParams {
+	loadMoreRef: MutableRefObject<null>;
+	month: number;
 }

@@ -1,4 +1,4 @@
-export default interface IUseTheme {
-  theme: string;
-  setTheme: (value: string) => void;
+export default interface UseThemeParams {
+	theme: string;
+	setTheme: (value: string) => void;
 }
